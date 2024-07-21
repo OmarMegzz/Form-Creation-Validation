@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add event listener for form submission
   form.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the form from submitting
+    event.preventDefault();
 
     // Retrieve and trim input values
     const username = document.getElementById("username").value.trim();
@@ -35,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Display feedback
-    feedbackDiv.innerHTML = ""; // Clear previous feedback
+    feedbackDiv.style.display = "block";
     if (isValid) {
-      feedbackDiv.innerHTML = "<p>Form submitted successfully!</p>";
+      feedbackDiv.textContent = "Registration successful!";
+      feedbackDiv.style.color = "#28a745";
     } else {
-      messages.forEach(function (message) {
-        feedbackDiv.innerHTML += `<p>${message}</p>`;
-      });
+      feedbackDiv.innerHTML = messages.join("<br>");
+      feedbackDiv.style.color = "#dc3545";
     }
   });
 });
